@@ -52,4 +52,39 @@ public class Certificate {
     @Column(name="date_creation")
     @Temporal(value = TemporalType.TIMESTAMP)
     private LocalDate dateCreation;
+
+    public Certificate withUserCreator(User userCreator) {
+        this.userCreator = userCreator;
+        return this;
+    }
+
+    public Certificate withUserJudge(User userJudge) {
+        this.userJudge = userJudge;
+        return this;
+    }
+
+    public Certificate withAmountHours(LocalTime amountHours) {
+        this.amountHours = amountHours;
+        return this;
+    }
+
+    public Certificate withDocument(String document) {
+        this.document = document;
+        return this;
+    }
+
+    public Certificate withDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public Certificate withStatus(char status) {
+        this.status = status;
+        return this;
+    }
+
+    public Certificate withDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+        return this;
+    }
 }

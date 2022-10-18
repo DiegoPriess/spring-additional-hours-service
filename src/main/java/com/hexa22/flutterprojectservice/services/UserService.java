@@ -11,15 +11,19 @@ import org.springframework.util.Assert;
 @Service
 public class UserService {
 
+    private final UserRepository repository;
+
     @Autowired
-    private UserRepository repository;
+    public UserService(UserRepository repository) {
+        this.repository = repository;
+    }
 
     public User getDetails(@NotNull final Long id) {
         return repository.findById(id).get();
     }
 
-    public void save(@NotNull final User newUser) {
-        repository.save(newUser);
+    public void save(@NotNull final User user) {
+        repository.save(user);
     }
 
     public User authenticate(@NotNull final String email, @NotNull final String password) {
