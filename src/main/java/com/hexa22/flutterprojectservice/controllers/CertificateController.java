@@ -1,9 +1,7 @@
 package com.hexa22.flutterprojectservice.controllers;
 
 import com.hexa22.flutterprojectservice.models.Certificate;
-import com.hexa22.flutterprojectservice.models.User;
 import com.hexa22.flutterprojectservice.services.CertificateService;
-import com.hexa22.flutterprojectservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
