@@ -3,11 +3,11 @@ package com.hexa22.flutterprojectservice.services;
 import com.hexa22.flutterprojectservice.models.Certificate;
 import com.hexa22.flutterprojectservice.models.User;
 import com.hexa22.flutterprojectservice.repository.CertificateRepository;
-import com.hexa22.flutterprojectservice.repository.UserRepository;
-import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+
+import javax.validation.constraints.NotNull;
 
 @Service
 public class CertificateService {

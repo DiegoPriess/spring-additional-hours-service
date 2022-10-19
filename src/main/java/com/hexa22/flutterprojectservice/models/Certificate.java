@@ -7,9 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Calendar;
 
 @Getter
 @Setter
@@ -50,8 +50,8 @@ public class Certificate {
     private char status;
 
     @Column(name="date_creation")
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private LocalDate dateCreation;
+    @Temporal(value = TemporalType.DATE)
+    private Calendar dateCreation;
 
     public Certificate withUserCreator(User userCreator) {
         this.userCreator = userCreator;
@@ -83,7 +83,7 @@ public class Certificate {
         return this;
     }
 
-    public Certificate withDateCreation(LocalDate dateCreation) {
+    public Certificate withDateCreation(Calendar dateCreation) {
         this.dateCreation = dateCreation;
         return this;
     }
