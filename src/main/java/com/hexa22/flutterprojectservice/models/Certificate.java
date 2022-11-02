@@ -21,6 +21,10 @@ public class Certificate {
 
     private static final long serialVersionUID = 1L;
 
+    public static synchronized Certificate create() {
+        return new Certificate();
+    }
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;

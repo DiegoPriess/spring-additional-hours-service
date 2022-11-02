@@ -18,6 +18,10 @@ public class User {
 
     private static final long serialVersionUID = 1L;
 
+    public static synchronized User create() {
+        return new User();
+    }
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
@@ -41,4 +45,29 @@ public class User {
     @NotNull
     @Column(name="permission")
     private char permission;
+
+    public User withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public User withRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+        return this;
+    }
+
+    public User withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public User withPassword(String password){
+        this.password = password;
+        return this;
+    }
+
+    public User withPermission(char permission) {
+        this.permission = permission;
+        return this;
+    }
 }
