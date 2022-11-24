@@ -18,7 +18,7 @@ public class UserService {
         this.repository = repository;
     }
 
-    public User getDetails(@NotNull final Long id) {
+    public User getById(@NotNull final Long id) {
         return repository.findById(id).get();
     }
 

@@ -26,24 +26,18 @@ public class CertificateController {
 
     @PostMapping
     public ResponseEntity create(@RequestBody @Valid CertificateDTO certificate){
-        service.save(Certificate.create()
-                            .withUserCreator(userService.getDetails(certificate.getUserCreator()))
-                            .withUserJudge(userService.getDetails(certificate.getUserJudge()))
-                            .withAmountHours(certificate.getAmountHours())
-                            .withDocument(certificate.getDocument())
-                            .withDescription(certificate.getDescription())
-                            .withStatus(certificate.getStatus()));
+        service.save(certificate);
 
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Certificate> getDetails(@PathVariable Long id) {
-        return ResponseEntity.ok(service.getDetails(id));
+    public ResponseEntity<Certificate> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(service.getById(id));
     }
 
     @GetMapping("/details/{id}/{status}")
-    public ResponseEntity getDetails(@PathVariable Long id, @PathVariable char status, @PathVariable Long userJudgerId) {
+    public ResponseEntity judgeCertificate(@PathVariable Long id, @PathVariable char status, @PathVariable Long userJudgerId) {
         service.judgeCertificate(id, status, userJudgerId);
         return ResponseEntity.ok().build();
     }

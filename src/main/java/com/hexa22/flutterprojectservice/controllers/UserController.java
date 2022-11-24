@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getDetails(@PathVariable Long id) {
-        return ResponseEntity.ok(service.getDetails(id));
+        return ResponseEntity.ok(service.getById(id));
     }
 
     @GetMapping("/auth/{email}/{password}")
