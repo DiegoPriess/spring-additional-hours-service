@@ -23,6 +23,10 @@ public class UserService {
     }
 
     public void save(@NotNull final User user) {
+        if(!(user.getId() == null)){
+            Assert.notNull(repository.findById(user.getId()), "Usuário não encontrado");
+        }
+
         repository.save(user);
     }
 

@@ -15,13 +15,13 @@ public class UserController {
     @Autowired
     UserService service;
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<User> create(@RequestBody @Valid User user){
         service.save(user);
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/details/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> getDetails(@PathVariable Long id) {
         return ResponseEntity.ok(service.getDetails(id));
     }

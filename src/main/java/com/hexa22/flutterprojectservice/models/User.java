@@ -39,6 +39,10 @@ public class User {
     private String email;
 
     @NotNull
+    @Column(name="cpf")
+    private String cpf;
+
+    @NotNull
     @Column(name="password")
     private String password;
 

@@ -19,13 +19,13 @@ public class CertificateController {
         this.service = service;
     }
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity create(@RequestBody @Valid Certificate certificate){
         service.save(certificate);
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/details/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Certificate> getDetails(@PathVariable Long id) {
         return ResponseEntity.ok(service.getDetails(id));
     }
