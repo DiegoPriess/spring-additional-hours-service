@@ -43,5 +43,9 @@ public class CertificateService {
         repository.save(repository.findById(id).get()
                                                .withStatus(status));
     }
+
+    public void deleteById(@NotNull final Long id) {
+        repository.deleteById(id);
+    }
 }
 

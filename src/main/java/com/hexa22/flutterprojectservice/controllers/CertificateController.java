@@ -41,5 +41,11 @@ public class CertificateController {
         service.judgeCertificate(id, status, userJudgerId);
         return ResponseEntity.ok().build();
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Certificate> deleteById(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
 }
 
