@@ -3,6 +3,8 @@ package com.hexa22.flutterprojectservice.services;
 import com.hexa22.flutterprojectservice.models.User;
 import com.hexa22.flutterprojectservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -11,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @Service
 public class UserService {
 
-    private final UserRepository repository;
+    public final UserRepository repository;
 
     @Autowired
     public UserService(UserRepository repository) {
@@ -34,6 +36,11 @@ public class UserService {
         User userFound = repository.findByEmailAndPassword(email, password);
         Assert.notNull(userFound, "Usuário ou senha incorreta");
         return userFound;
+    }
+
+    public Page<User> list(@NotNull Pageable pageable, String name) {
+
+        return name == null ? repository.findAll(pageable) : repository.findAllByNameContaining(name, pageable);
     }
 }
 
