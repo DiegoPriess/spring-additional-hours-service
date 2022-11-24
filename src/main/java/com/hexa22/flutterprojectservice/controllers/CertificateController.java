@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/certificate")
@@ -46,6 +47,11 @@ public class CertificateController {
     public ResponseEntity<Certificate> deleteById(@PathVariable Long id) {
         service.deleteById(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/list/{idUser}")
+    public ResponseEntity<List<Certificate>> list(@PathVariable Long idUser) {
+        return ResponseEntity.ok(service.list(idUser));
     }
 }
 

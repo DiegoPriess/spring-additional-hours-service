@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Service
 public class CertificateService {
@@ -46,6 +47,10 @@ public class CertificateService {
 
     public void deleteById(@NotNull final Long id) {
         repository.deleteById(id);
+    }
+
+    public List<Certificate> list(@NotNull final Long id) {
+        return repository.findByUserCreator(userService.getById(id));
     }
 }
 
