@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.List;
 
 @Service
@@ -34,6 +36,7 @@ public class CertificateService {
                                     .withUserJudge(userService.getById(certificate.getUserJudge()))
                                     .withAmountHours(certificate.getAmountHours())
                                     .withDocument(certificate.getDocument())
+                                    .withDateCreation(Calendar.getInstance())
                                     .withDescription(certificate.getDescription())
                                     .withStatus(certificate.getStatus()));
     }
