@@ -41,6 +41,18 @@ public class CertificateService {
                                     .withStatus(certificate.getStatus()));
     }
 
+    public void update(@NotNull final CertificateDTO certificate) {
+        repository.save(Certificate.create()
+                .withId(certificate.getId())
+                .withUserCreator(userService.getById(certificate.getUserCreator()))
+                .withUserJudge(userService.getById(certificate.getUserJudge()))
+                .withAmountHours(certificate.getAmountHours())
+                .withDocument(certificate.getDocument())
+                .withDateCreation(Calendar.getInstance())
+                .withDescription(certificate.getDescription())
+                .withStatus(certificate.getStatus()));
+    }
+
     public void judgeCertificate(@NotNull final Long id, @NotNull final char status, @NotNull final Long userJudgerId) {
         final User userJudger = userService.getById(userJudgerId);
         Assert.notNull(userJudger, "Usuário julgador não encontrado");

@@ -32,6 +32,13 @@ public class CertificateController {
         return ResponseEntity.ok().build();
     }
 
+    @PutMapping
+    public ResponseEntity update(@RequestBody @Valid CertificateDTO certificate){
+        service.update(certificate);
+
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Certificate> getById(@PathVariable Long id) {
         return ResponseEntity.ok(service.getById(id));

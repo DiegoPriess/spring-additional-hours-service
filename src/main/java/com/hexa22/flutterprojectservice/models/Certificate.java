@@ -57,6 +57,11 @@ public class Certificate {
     @Temporal(value = TemporalType.DATE)
     private Calendar dateCreation;
 
+    public Certificate withId(Long id) {
+        this.id = id;
+        return this;
+    }
+
     public Certificate withUserCreator(User userCreator) {
         this.userCreator = userCreator;
         return this;

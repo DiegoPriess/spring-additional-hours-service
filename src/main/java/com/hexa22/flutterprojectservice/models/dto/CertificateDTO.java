@@ -15,6 +15,9 @@ import java.time.LocalTime;
 public class CertificateDTO {
 
     @NotNull
+    private Long id;
+
+    @NotNull
     private Long userCreator;
 
     @NotNull
